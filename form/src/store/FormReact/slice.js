@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
-    Dssv: []
+    Dssv: [],
+    DssvEdit: undefined
 }
 const formReactSlice = createSlice({
     name: 'formReact',
@@ -11,6 +12,9 @@ const formReactSlice = createSlice({
         },
         deleteSV: (state, {payload}) => {
             state.Dssv = state.Dssv.filter(item => item.maSV !== payload.maSV )
+        },
+        editDssv: (state, {payload}) => {
+            state.DssvEdit = payload
         }
     }
 })

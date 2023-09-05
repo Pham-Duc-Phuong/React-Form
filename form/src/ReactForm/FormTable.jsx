@@ -22,14 +22,16 @@ const FormTable = () => {
         <tbody>
           {
             Dssv.map(item =>
-              <tr>
+              <tr key={item.maSV}>
                 <td>{item?.maSV}</td>
                 <td>{item?.tenSV}</td>
                 <td><img style={{width:100}} src={item?.image} alt="" /></td>
                 <td>{item?.email}</td>
                 <td>{item?.phone}</td>
                 <td>{item?.stc}</td>
-                <td><button className='btn btn-success me-3'>Edit</button><button className='btn btn-danger' onClick={()=>{
+                <td><button className='btn btn-success me-3' onClick={()=>{
+                   dispatch(formReactActions.editDssv(item))
+                }}>Edit</button><button className='btn btn-danger' onClick={()=>{
                   dispatch(formReactActions.deleteSV(item))
                 }}>Delete</button></td>
               </tr>
