@@ -57,7 +57,11 @@ const FormInput = () => {
                         }
                     }
                     if (noSubmit) return
-                    dispatch(formReactActions.addSV(formValue))
+                    if (!DssvEdit){
+                        dispatch(formReactActions.addSV(formValue))
+                    } else {
+                        dispatch(formReactActions.editDssv(formValue))
+                    }
                 }} >
                 <div className="row">
                     <div className="col-6 my-2">

@@ -15,6 +15,15 @@ const formReactSlice = createSlice({
         },
         editDssv: (state, {payload}) => {
             state.DssvEdit = payload
+        },
+        updateProduct: (state, {payload}) => {
+            state.Dssv.map((item) => {
+                if (item.maSV === payload.maSV){
+                    return payload
+                }
+                return item
+            })
+            state.DssvEdit= undefined
         }
     }
 })
