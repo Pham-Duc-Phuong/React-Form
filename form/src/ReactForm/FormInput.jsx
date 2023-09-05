@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { formReactActions } from '../store/FormReact/slice'
 const FormInput = () => {
@@ -32,6 +32,10 @@ const FormInput = () => {
         })
 
     }
+    useEffect(()=>{
+        if(!DssvEdit) return
+        setFormValue(DssvEdit)
+    },[DssvEdit])
     return (
         <div>
             <form className='form-control'
@@ -59,7 +63,7 @@ const FormInput = () => {
                     <div className="col-6 my-2">
                         <p>Mã số sinh viên:</p>
                         <input className='form-control' type="text"
-                            value={DssvEdit?.maSV}
+                            value={formValue?.maSV || ''}
                             required
                             title='mã số sinh viên'
                             name='maSV'
@@ -72,7 +76,7 @@ const FormInput = () => {
                     <div className="col-6 my-2">
                         <p>Tên sinh viên:</p>
                         <input className='form-control' type="text"
-                            value={DssvEdit?.tenSV}
+                            value={formValue?.tenSV || ''}
                             required
                             title='tên sinh viên'
                             name='tenSV'
@@ -84,7 +88,7 @@ const FormInput = () => {
                     <div className="col-6 my-2">
                         <p>Hình ảnh:</p>
                         <input className='form-control' type="text"
-                            value={DssvEdit?.image}
+                            value={formValue?.image || ''}
                             required
                             title='hình ảnh'
                             name='image'
@@ -95,7 +99,7 @@ const FormInput = () => {
                     <div className="col-6 my-2">
                         <p>Email:</p>
                         <input className='form-control' type="text"
-                            value={DssvEdit?.email}
+                            value={formValue?.email || ''}
                             required
                             title='email'
                             name='email'
@@ -107,7 +111,7 @@ const FormInput = () => {
                     <div className="col-6 my-2">
                         <p>Số điện thoại:</p>
                         <input className='form-control' type="text"
-                            value={DssvEdit?.phone}
+                            value={formValue?.phone || ''}
                             required
                             title='số điện thoại'
                             name='phone'
@@ -119,7 +123,7 @@ const FormInput = () => {
                     <div className="col-6 my-2">
                         <p>Số tín chỉ hoàn thành:</p>
                         <input className='form-control' type="text"
-                            value={DssvEdit?.stc}
+                            value={formValue?.stc || ''}
                             required
                             title='số tín chỉ hoàn thành'
                             name='stc'
