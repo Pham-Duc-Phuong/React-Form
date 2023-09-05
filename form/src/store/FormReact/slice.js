@@ -17,7 +17,7 @@ const formReactSlice = createSlice({
             state.DssvEdit = payload
         },
         updateProduct: (state, {payload}) => {
-            state.Dssv.map((item) => {
+            state.Dssv = state.Dssv.map((item) => {
                 if (item.maSV === payload.maSV){
                     return payload
                 }
