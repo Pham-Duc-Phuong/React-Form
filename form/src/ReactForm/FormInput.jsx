@@ -60,7 +60,7 @@ const FormInput = () => {
                     if (!DssvEdit){
                         dispatch(formReactActions.addSV(formValue))
                     } else {
-                        dispatch(formReactActions.editDssv(formValue))
+                        dispatch(formReactActions.updateDssv(formValue))
                     }
                 }} >
                 <div className="row">
